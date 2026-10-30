@@ -47,7 +47,7 @@ const guides = [
 
 function PopularGuides() {
   return (
-    <section className="guides-section" id="guides">
+    <section className="guides-section" id="popular-guides">
       <div className="guides-container">
         <div className="guides-heading">
           <div>

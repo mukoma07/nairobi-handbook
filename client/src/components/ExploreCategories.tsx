@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const categories = [
   {
     icon: "🏠",
@@ -43,7 +45,7 @@ const categories = [
 
 function ExploreCategories() {
   return (
-    <section className="explore-section">
+    <section className="explore-section" id="categories">
       <div className="explore-container">
         <div className="section-heading">
           <p className="section-label">EXPLORE NAIROBI</p>
@@ -58,17 +60,30 @@ function ExploreCategories() {
 
         <div className="category-grid">
           {categories.map((category) => (
-            <a href="#" className="category-card" key={category.title}>
-              <span className="category-icon">{category.icon}</span>
-
-              <div>
-                <h3>{category.title}</h3>
-                <p>{category.description}</p>
-              </div>
-
-              <span className="category-arrow">↗</span>
-            </a>
-          ))}
+            category.title === "Housing" || category.title === "Money" ? (
+              <Link
+                to={category.title === "Housing" ? "/housing" : "/money"}
+                className="category-card"
+                key={category.title}
+              >
+                <span className="category-icon">{category.icon}</span>
+                <div>
+                  <h3>{category.title}</h3>
+                  <p>{category.description}</p>
+               </div>
+               <span className="category-arrow">↗</span>
+             </Link>
+           ) : (
+             <a href="#" className="category-card" key={category.title}>
+               <span className="category-icon">{category.icon}</span>
+               <div>
+                 <h3>{category.title}</h3>
+                 <p>{category.description}</p>
+               </div>
+               <span className="category-arrow">↗</span>
+             </a>
+           )
+         ))}
         </div>
       </div>
     </section>
